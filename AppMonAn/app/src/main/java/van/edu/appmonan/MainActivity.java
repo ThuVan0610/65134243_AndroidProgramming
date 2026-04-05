@@ -1,68 +1,44 @@
 package van.edu.appmonan;
 
 import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.Toast;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+    ListView lvDSMonAn;
+    ArrayList<MonAn> dsMonAn;
+    MonAnAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        // Tìm listview
-        ListView lvDSMonAn = (ListView) findViewById(R.id.lvDSMonAn);
-        insert();
-        MonAnAdapter adapter = new MonAnAdapter(this, dsMonAn);
+
+        lvDSMonAn = findViewById(R.id.lvDSMonAn);
+
+        dsMonAn = new ArrayList<>();
+        dsMonAn.add(new MonAn("Cơm tấm sườn", 25000, "Ngon tuyệt", R.drawable.cts));
+        dsMonAn.add(new MonAn("Cơm sườn trứng", 25000, "Đậm đà", R.drawable.cst));
+        dsMonAn.add(new MonAn("Gà xối mỡ", 30000, "Giòn rụm", R.drawable.cg));
+        dsMonAn.add(new MonAn("Sườn bì chả", 30000, "Đặc trưng", R.drawable.sb));
+        dsMonAn.add(new MonAn("Đặc biệt", 40000, "Full topping", R.drawable.db));
+
+        adapter = new MonAnAdapter(this, dsMonAn);
         lvDSMonAn.setAdapter(adapter);
-        // Xử lý sự kiện
+
         lvDSMonAn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Lấy phần tử được chọn
-                MonAn monAnHienTai = dsMonAn.get(position);
-                Snackbar.make(view, "Bạn vừa chọn: "+ monAnHienTai.getTenMonAn(), Snackbar.LENGTH_LONG)
-                        .setAction("Đóng", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                // Code xử lý
-                            }
-                        }).show();
+                MonAn monAn = dsMonAn.get(position);
+                Toast.makeText(MainActivity.this, monAn.getTenMonAn(), Toast.LENGTH_SHORT).show();
             }
         });
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-    }
-    ArrayList<MonAn> dsMonAn = new ArrayList<>();
-    public void insert(){
-        dsMonAn.add(new MonAn("Cơm tắm sườn", 27000,"Đặc biệt thơm ngon",
-                R.drawable.comtamsuon));
-        dsMonAn.add(new MonAn("Cơm vịt", 25000,"Rất nhiều topping",
-                R.drawable.comvit));
-        dsMonAn.add(new MonAn("Cơm gà", 25000,"Đặc sản Nha Trang",
-                R.drawable.comga));
-        dsMonAn.add(new MonAn("Cơm chiên trứng", 15000,"Giống cơm mẹ nấu",
-                R.drawable.comchientrung));
-        dsMonAn.add(new MonAn("Cơm chiên muối é", 15000,"Đặc biệt ngon",
-                R.drawable.comchienmuoie));
-        dsMonAn.add(new MonAn("Cơm chiên hải sản", 35000,"Phần ăn dành 2 người",
-                R.drawable.comchienhaisan));
     }
 }

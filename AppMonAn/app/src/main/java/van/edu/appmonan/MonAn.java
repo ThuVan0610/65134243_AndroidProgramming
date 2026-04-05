@@ -5,6 +5,8 @@ public class MonAn {
     private double donGia;
     private String moTa;
     private int idAnhMinhHoa;
+    // ham tao
+
 
     public MonAn(String tenMonAn, double donGia, String moTa, int idAnhMinhHoa) {
         this.tenMonAn = tenMonAn;

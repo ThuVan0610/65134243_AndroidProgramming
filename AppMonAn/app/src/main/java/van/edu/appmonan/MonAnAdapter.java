@@ -9,15 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-public class MonAnAdapter extends BaseAdapter{
-    private ArrayList<MonAn> dsMonAn;
-    private LayoutInflater layoutInflater;
+
+public class MonAnAdapter extends BaseAdapter {
+
     private Context context;
+    private ArrayList<MonAn> dsMonAn;
+    private LayoutInflater inflater;
 
     public MonAnAdapter(Context context, ArrayList<MonAn> dsMonAn) {
-        this.dsMonAn = dsMonAn;
         this.context = context;
-        this.layoutInflater = layoutInflater.from(context);
+        this.dsMonAn = dsMonAn;
+        this.inflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -32,30 +34,28 @@ public class MonAnAdapter extends BaseAdapter{
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = null;
-        // View item hiện hành
-        View viewHienHanh = view;
-        // Kiểm tra
-        if(viewHienHanh == null){
-            viewHienHanh = layoutInflater.inflate(R.layout.item_monan,null);
+
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.item_monan, parent, false);
         }
-        // Lấy dữ liệu
-        MonAn monAnHienTai = dsMonAn.get(position);
-        // Gán tên các điều khiển
-        // Tìm điều khiển
-        TextView textView_TenMon = (TextView) viewHienHanh.findViewById(R.id.tvTenMonAn);
-        TextView textView_DonGia = (TextView) viewHienHanh.findViewById(R.id.tvDonGia);
-        TextView textView_MoTa = (TextView) viewHienHanh.findViewById(R.id.tvMoTa);
-        ImageView imageView_Anh = (ImageView) viewHienHanh.findViewById(R.id.img_anhDaiDien);
-        textView_TenMon.setText(monAnHienTai.getTenMonAn());
-        textView_DonGia.setText(String.valueOf(monAnHienTai.getDonGia()) + " đ");
-        textView_MoTa.setText(monAnHienTai.getMoTa());
-        imageView_Anh.setImageResource(monAnHienTai.getIdAnhMinhHoa());
-        return viewHienHanh;
+
+        MonAn monAn = dsMonAn.get(position);
+
+        TextView tvTen = convertView.findViewById(R.id.tvTenMonAn);
+        TextView tvGia = convertView.findViewById(R.id.tvDonGia);
+        TextView tvMoTa = convertView.findViewById(R.id.tvMoTa);
+        ImageView img = convertView.findViewById(R.id.img_anhDaiDien);
+
+        tvTen.setText(monAn.getTenMonAn());
+        tvGia.setText(monAn.getDonGia() + " đ");
+        tvMoTa.setText(monAn.getMoTa());
+        img.setImageResource(monAn.getIdAnhMinhHoa());
+
+        return convertView;
     }
 }
