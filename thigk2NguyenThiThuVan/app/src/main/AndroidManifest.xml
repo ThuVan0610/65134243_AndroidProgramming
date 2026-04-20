@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Thigk2NguyenThiThuVan">
         <activity
+            android:name=".Cau4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Cau3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Cau2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Cau1Activity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

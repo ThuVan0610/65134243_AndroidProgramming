@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/anh"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Họ và Tên: Nguyễn Thị Thu Vân" android:textSize="22sp" android:textStyle="bold" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mã số sinh viên: 65134243" android:textSize="16sp" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sở thích: Lập trình, Nghe nhạc" android:layout_marginTop="10dp" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sở trường: Thiết kế giao diện" />
+</LinearLayout>

@@ -1,0 +1,13 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText android:id="@+id/edtDai" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nhập chiều dài" android:inputType="numberDecimal"/>
+    <EditText android:id="@+id/edtRong" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nhập chiều rộng" android:inputType="numberDecimal" android:layout_marginTop="10dp"/>
+
+    <Button android:id="@+id/btnTinh" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="TÍNH CHU VI &amp; DIỆN TÍCH" android:layout_marginTop="20dp"/>
+
+    <TextView android:id="@+id/txtKq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kết quả sẽ hiện ở đây" android:textSize="18sp" android:layout_marginTop="20dp" android:textColor="#000" />
+</LinearLayout>
