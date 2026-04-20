@@ -1,22 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/imgHinh"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_launcher_background"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginStart="15dp">
+        android:layout_marginStart="8dp">
 
-        <TextView android:id="@+id/txtTen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tên địa điểm" android:textSize="18sp" android:textStyle="bold" />
-        <TextView android:id="@+id/txtDiaChi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Địa chỉ" android:textColor="#666" />
+        <TextView
+            android:id="@+id/txtTen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtDiaChi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </LinearLayout>
