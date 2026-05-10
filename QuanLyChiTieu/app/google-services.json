@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "637942757009",
+    "project_id": "android-projects-74454",
+    "storage_bucket": "android-projects-74454.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637942757009:android:f50b99f7f94ecc2514f130",
+        "android_client_info": {
+          "package_name": "van.edu.quanlychitieu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfG0r6lvQ31fT_II9dUpaQZ2bUTDmEpZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
